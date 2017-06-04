@@ -39,3 +39,4 @@ def listenToClient():
         except socket.timeout:
             print('time out')
         connection.close()
+# init('127.0.0.1',8001)
