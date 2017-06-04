@@ -5,7 +5,7 @@ import socket
 import time
 def Send_Stastic():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.connect(('127.0.0.1', 8001))
+    sock.connect(('192.168.2.48', 8001))
     pid = os.getpid()
     py = psutil.Process(pid)
     now_CPU = 0.0
@@ -28,4 +28,4 @@ def Send_Stastic():
 if __name__ == '__main__':
     while True:
       Send_Stastic()
-      time.sleep(3)
+      time.sleep(10)
