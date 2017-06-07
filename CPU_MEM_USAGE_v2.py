@@ -21,7 +21,7 @@ def Send_Stastic():
     #       break
 
     now_CPU+=10
-    string = str(now_CPU)+","+str(memoryUse)+",server1"
+    string = str(now_CPU)+","+str(memoryUse)+",server2"
     #print(string)
     print("CPU = "+str(now_CPU))
     sock.send(string.encode('utf-8'))
