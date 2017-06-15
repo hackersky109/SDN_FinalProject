@@ -4,7 +4,10 @@ import psutil
 import socket
 import time
 now_CPU = 10
+flag = 0
 def Send_Stastic():
+    global now_CPU
+    global flag
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect(('192.168.2.48', 8001))
     # pid = os.getpid()
@@ -19,8 +22,15 @@ def Send_Stastic():
     #     #print(now_CPU)
     #     if(now_CPU!=0.0):
     #       break
-
-    now_CPU+=10
+    if(flag==0):
+      print(1111)
+      now_CPU += 10
+    else:
+      print(2222)
+      now_CPU -= 10
+    if(now_CPU == 90):
+      flag = 1
+    #now_CPU+=10
     string = str(now_CPU)+","+str(memoryUse)+",server1"
     #print(string)
     print("CPU = "+str(now_CPU))
@@ -30,5 +40,7 @@ def Send_Stastic():
     sock.close()
 if __name__ == '__main__':
     while True:
+      if(now_CPU==0):
+        break
       Send_Stastic()
-      time.sleep(1)
+      time.sleep(2)
