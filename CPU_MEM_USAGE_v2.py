@@ -5,6 +5,7 @@ import socket
 import time
 now_CPU = 10
 def Send_Stastic():
+    global now_CPU
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect(('192.168.2.48', 8001))
     # pid = os.getpid()
